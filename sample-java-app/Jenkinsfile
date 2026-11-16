@@ -131,7 +131,7 @@ pipeline {
                                     -Dversion=1.0.0-SNAPSHOT \
                                     -Dpackaging=jar \
                                     -Dfile=target/ci-demo-1.0.0-SNAPSHOT.jar \
-                                    -Durl=http://lab7-nexus:8081/repository/maven-snapshots/ \
+                                    -Durl=http://lab7-nexus:8083/repository/maven-snapshots/ \
                                     -DrepositoryId=nexus
                             '''
                         }

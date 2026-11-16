@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        NEXUS_URL      = 'http://lab7-nexus:8083'
+        NEXUS_URL      = 'http://lab7-nexus:8081'
         NEXUS_REPO     = 'maven-snapshots'
         SONAR_HOST_URL = 'http://lab7-sonarqube:9000'
     }
@@ -131,7 +131,7 @@ pipeline {
                                     -Dversion=1.0.0-SNAPSHOT \
                                     -Dpackaging=jar \
                                     -Dfile=target/ci-demo-1.0.0-SNAPSHOT.jar \
-                                    -Durl=http://lab7-nexus:8083/repository/maven-snapshots/ \
+                                    -Durl=http://lab7-nexus:8081/repository/maven-snapshots/ \
                                     -DrepositoryId=nexus
                             '''
                         }

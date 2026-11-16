@@ -6,9 +6,9 @@ pipeline {
     }
 
     environment {
-        NEXUS_URL      = 'http://lab7-nexus:8081'
+        NEXUS_URL      = 'http://localhost:8081'
         NEXUS_REPO     = 'maven-snapshots'
-        SONAR_HOST_URL = 'http://lab7-sonarqube:9000'
+        SONAR_HOST_URL = 'http://localhost:9000'
     }
 
     stages {
@@ -54,14 +54,7 @@ pipeline {
 
                 dir('sample-java-app') {
 
-                    withSonarQubeEnv('SonarQube') {
-
-                        withCredentials([
-                            string(
-                                credentialsId: 'sonarqube-token',
-                                variable: 'SONAR_TOKEN'
-                            )
-                        ]) {
+                    withSonarQubeEnv('lab6-sonarqube') {
 
                             sh '''
                                 mvn clean verify sonar:sonar \
@@ -69,7 +62,7 @@ pipeline {
                                 -Dsonar.host.url=http://localhost:9000 \
                                 -Dsonar.login=sqp_c80f8c0796cbff5c7eb0e7a1390a7b289cff0334
                             '''
-                        }
+                        
                     }
                 }
             }
